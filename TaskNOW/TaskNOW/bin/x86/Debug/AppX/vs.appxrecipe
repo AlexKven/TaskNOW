@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOW\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-07-04T12:12:33.379</Modified>
+      <Modified>2016-07-06T18:55:02.752</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOW\bin\x86\Debug\TaskNOW.exe">
       <PackagePath>entrypoint\TaskNOW.exe</PackagePath>
-      <Modified>2016-07-04T12:12:32.982</Modified>
+      <Modified>2016-07-06T18:55:02.283</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -498,7 +498,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOW\bin\x86\Debug\TaskNOW.xr.xml">
       <PackagePath>TaskNOW.xr.xml</PackagePath>
-      <Modified>2016-07-04T11:22:00.065</Modified>
+      <Modified>2016-07-06T18:53:41.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -506,11 +506,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOW\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-07-04T11:28:28.208</Modified>
+      <Modified>2016-07-06T18:53:42.738</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOW\bin\x86\Debug\Core\TaskNOW.exe">
       <PackagePath>TaskNOW.exe</PackagePath>
-      <Modified>2016-07-04T12:12:33.375</Modified>
+      <Modified>2016-07-06T18:55:02.735</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

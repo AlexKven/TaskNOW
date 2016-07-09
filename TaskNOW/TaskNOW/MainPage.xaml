@@ -5,9 +5,86 @@
     xmlns:local="using:TaskNOW"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20" Click="Button_Click">Authenticate</Button>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="604" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="DatesPanel.(RelativePanel.RightOf)"
+                            Value="ProjectsPanel" />
+                        <Setter Target="TimesPanel.(RelativePanel.RightOf)"
+                            Value="DatesPanel" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="MediumState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="404" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="ProjectsPanel.(RelativePanel.AlignHorizontalCenterWithPanel)"
+                            Value="true" />
+                        <Setter Target="DatesPanel.(RelativePanel.Below)"
+                            Value="ProjectsPanel" />
+                        <Setter Target="TimesPanel.(RelativePanel.Below)"
+                            Value="ProjectsPanel" />
+                        <Setter Target="TimesPanel.(RelativePanel.RightOf)"
+                            Value="DatesPanel" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="DatesPanel.(RelativePanel.Below)"
+                            Value="ProjectsPanel" />
+                        <Setter Target="TimesPanel.(RelativePanel.Below)"
+                            Value="DatesPanel" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+            <StackPanel x:Name="MainStackPanel" Visibility="Collapsed">
+                <Button HorizontalAlignment="Center" Margin="10" x:Name="LoginButton" Click="LoginButton_Click" Visibility="Collapsed">Login to Todoist</Button>
+                <Button HorizontalAlignment="Center" Margin="10" x:Name="LogoutButton" Click="LogoutButton_Click" Visibility="Collapsed">Log out of Todoist</Button>
+                <TextBlock Margin="10" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords">Welcome! TaskNOW is a way to very quickly create a new task in Todoist right from your lock screen in Windows 10, through an interactive toast notification. You can set up to 5 different preset projects that can the notification can show.</TextBlock>
+                <RelativePanel HorizontalAlignment="Center">
+                    <StackPanel x:Name="ProjectsPanel" HorizontalAlignment="Center" Width="200">
+                        <TextBlock Margin="5" FontSize="20" HorizontalAlignment="Center" TextWrapping="WrapWholeWords">Preset Projects</TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="DatesPanel" HorizontalAlignment="Center" Width="200">
+                        <TextBlock Margin="5" FontSize="20" HorizontalAlignment="Center" TextWrapping="WrapWholeWords">Preset Dates</TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="TimesPanel" HorizontalAlignment="Center" Width="200">
+                        <TextBlock Margin="5" FontSize="20" HorizontalAlignment="Center" TextWrapping="WrapWholeWords">Preset Times</TextBlock>
+                    </StackPanel>
+                </RelativePanel>
+                <TextBlock Margin="10" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualEntryInstruction">When you manually enter a date, time or both in the toast notification, put it before the reminder text. For example:</TextBlock>
+                <TextBlock Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateTimeExample">6/3/2016, 1:35 PM, Pick up friend from school</TextBlock>
+                <TextBlock Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateExample">6/3/2016, Pick up friend from school</TextBlock>
+                <TextBlock Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualTimeExample">1:35 PM, Pick up friend from school</TextBlock>
+                <Button Click="Button_Click">Test Toasts</Button>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer Visibility="Collapsed" Grid.Row="1" HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Auto" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+            <TextBlock x:Name="ResponseBlock"/>
+        </ScrollViewer>
+        <ProgressRing Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="LoadingIndicator" Visibility="Collapsed"/>
     </Grid>
 </Page>
