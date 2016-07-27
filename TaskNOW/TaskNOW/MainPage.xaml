@@ -79,11 +79,9 @@
                 <TextBlock Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateTimeExample">6/3/2016, 1:35 PM, Pick up friend from school</TextBlock>
                 <TextBlock Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateExample">6/3/2016, Pick up friend from school</TextBlock>
                 <TextBlock Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualTimeExample">1:35 PM, Pick up friend from school</TextBlock>
-                <Button Click="Button_Click">Test Toasts</Button>
+                <Button Click="SaveButton_Click" Width="200" Margin="5" HorizontalAlignment="Center">Save</Button>
+                <Button Click="Button_Click" Width="200" Margin="5" HorizontalAlignment="Center">Test</Button>
             </StackPanel>
-        </ScrollViewer>
-        <ScrollViewer Visibility="Collapsed" Grid.Row="1" HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Auto" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
-            <TextBlock x:Name="ResponseBlock"/>
         </ScrollViewer>
         <ProgressRing Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="LoadingIndicator" Visibility="Collapsed"/>
     </Grid>

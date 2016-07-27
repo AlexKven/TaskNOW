@@ -10,9 +10,35 @@ namespace TaskNOW
 {
     static class ToastManager
     {
-        public static void ShowToast()
+        const string TOAST_GROUP = "TaskNOW.Toast";
+        public static void ShowInteractiveToast()
         {
+            ShowInteractiveToast(false, false);
+        }
+
+        public static void ShowInteractiveToast(bool dontSuppress, bool forceRefresh)
+        {
+            if (!forceRefresh)
+            {
+                foreach (var his in ToastNotificationManager.History.GetHistory())
+                {
+                    if (his.Group == TOAST_GROUP)
+                        return;
+                }
+            }
             string template = CreateToastTemplate();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(template);
+            ToastNotification toast = new ToastNotification(doc);
+            toast.Group = TOAST_GROUP;
+            toast.SuppressPopup = !dontSuppress;
+            ToastNotificationManager.History.RemoveGroup(TOAST_GROUP);
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+
+        public static void ShowMessageToast(string title, string message)
+        {
+            string template = CreateMessageTemplate(title, message);
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(template);
             ToastNotification toast = new ToastNotification(doc);
@@ -123,6 +149,25 @@ namespace TaskNOW
                     + "<action activationType=\"background\" arguments=\"priority3\" content=\"Priority 3\"/>"
                     + "<action activationType=\"background\" arguments=\"priority4\" content=\"Priority 4\"/>"
                     + "</actions>"
+                    + "</toast>");
+
+            return result.ToString();
+        }
+
+        private static string CreateMessageTemplate(string title, string message)
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append("<toast>"
+                    + "<visual>"
+                    + "<binding template = \"ToastGeneric\" >"
+                    + "<text>");
+            result.Append(title);
+            result.Append("</text>"
+                    + "<text>");
+            result.Append(message);
+            result.Append("</text>"
+                    + "</binding>"
+                    + "</visual>"
                     + "</toast>");
 
             return result.ToString();

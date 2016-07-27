@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation;
@@ -118,7 +120,7 @@ namespace TaskNOW
                 else
                 {
                     string stringResult = await result.Content.ReadAsStringAsync();
-                    ResponseBlock.Text = stringResult.Replace("{", "{\n").Replace("}", "\n}");
+                    //ResponseBlock.Text = stringResult.Replace("{", "{\n").Replace("}", "\n}");
                     var projects = Parsing.ParseProjects(stringResult).Where(project => !project.Deleted);
                     PresetManager.SetProjectPresets(projects.ToList());
 
@@ -249,11 +251,21 @@ namespace TaskNOW
                 ManualTimeExample.Visibility = (!manualDate && manualTime) ? Visibility.Visible : Visibility.Collapsed;
             }
         }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToastManager.ShowInteractiveToast(true, true);
+        }
         #endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ToastManager.ShowToast();
+            //StringBuilder jsonBuilder = new StringBuilder();
+            var st = "'[{\"type\": \"item_add\", \"args\": {\"content\": \"Task1\", \"project_id\": " + PresetManager.GetProjectPresets().First().Item1.ToString() + "}}]'";
+            st.ToString(); 
+            var resp = await HttpRequests.HttpPost("https://todoist.com/API/v7/sync", "token", token, "commands", WebUtility.HtmlDecode("[{\"type\": \"item_add\", \"temp_id\": \"43f7ed23 - a038 - 46b5 - b2c9 - 4abda9097ffa\", \"uuid\": \"997d4b43 - 55f1 - 48a9 - 9e66 - de5785dfd69b\", \"args\": {\"content\": \"Task1\", \"project_id\": " + PresetManager.GetProjectPresets().First().Item1.ToString() + "}}]"));
+            var str = await resp.Content.ReadAsStringAsync();
+            str.ToString();
         }
     }
 }

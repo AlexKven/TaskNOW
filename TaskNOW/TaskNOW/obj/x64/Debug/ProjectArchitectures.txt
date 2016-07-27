@@ -1,2 +1,2 @@
-C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOW\TaskNOW.csproj;x64
-C:\Users\Alexander\Documents\GitHub\TaskNOW\TaskNOW\TaskNOWBackground\TaskNOWBackground.csproj;x64
+C:\GitHub\TaskNOW\TaskNOW\TaskNOW\TaskNOW.csproj;x64
+C:\GitHub\TaskNOW\TaskNOW\TaskNOWBackground\TaskNOWBackground.csproj;x64

@@ -60,9 +60,9 @@
             <RowDefinition Height="0"/>
         </Grid.RowDefinitions>-->
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
-            <StackPanel x:ConnectionId='7' x:Name="MainStackPanel" Visibility="Collapsed">
-                <Button x:ConnectionId='8' HorizontalAlignment="Center" Margin="10" x:Name="LoginButton"                           Visibility="Collapsed">Login to Todoist</Button>
-                <Button x:ConnectionId='9' HorizontalAlignment="Center" Margin="10" x:Name="LogoutButton"                            Visibility="Collapsed">Log out of Todoist</Button>
+            <StackPanel x:ConnectionId='6' x:Name="MainStackPanel" Visibility="Collapsed">
+                <Button x:ConnectionId='7' HorizontalAlignment="Center" Margin="10" x:Name="LoginButton"                           Visibility="Collapsed">Login to Todoist</Button>
+                <Button x:ConnectionId='8' HorizontalAlignment="Center" Margin="10" x:Name="LogoutButton"                            Visibility="Collapsed">Log out of Todoist</Button>
                 <TextBlock Margin="10" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords">Welcome! TaskNOW is a way to very quickly create a new task in Todoist right from your lock screen in Windows 10, through an interactive toast notification. You can set up to 5 different preset projects that can the notification can show.</TextBlock>
                 <RelativePanel HorizontalAlignment="Center">
                     <StackPanel x:ConnectionId='15' x:Name="ProjectsPanel" HorizontalAlignment="Center" Width="200">
@@ -75,15 +75,13 @@
                         <TextBlock Margin="5" FontSize="20" HorizontalAlignment="Center" TextWrapping="WrapWholeWords">Preset Times</TextBlock>
                     </StackPanel>
                 </RelativePanel>
-                <TextBlock x:ConnectionId='10' Margin="10" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualEntryInstruction">When you manually enter a date, time or both in the toast notification, put it before the reminder text. For example:</TextBlock>
-                <TextBlock x:ConnectionId='11' Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateTimeExample">6/3/2016, 1:35 PM, Pick up friend from school</TextBlock>
-                <TextBlock x:ConnectionId='12' Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateExample">6/3/2016, Pick up friend from school</TextBlock>
-                <TextBlock x:ConnectionId='13' Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualTimeExample">1:35 PM, Pick up friend from school</TextBlock>
-                <Button x:ConnectionId='14'                     >Test Toasts</Button>
+                <TextBlock x:ConnectionId='9' Margin="10" FontSize="18" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualEntryInstruction">When you manually enter a date, time or both in the toast notification, put it before the reminder text. For example:</TextBlock>
+                <TextBlock x:ConnectionId='10' Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateTimeExample">6/3/2016, 1:35 PM, Pick up friend from school</TextBlock>
+                <TextBlock x:ConnectionId='11' Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualDateExample">6/3/2016, Pick up friend from school</TextBlock>
+                <TextBlock x:ConnectionId='12' Margin="4" FontSize="16" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" x:Name="ManualTimeExample">1:35 PM, Pick up friend from school</TextBlock>
+                <Button x:ConnectionId='13'                          Width="200" Margin="5" HorizontalAlignment="Center">Save</Button>
+                <Button x:ConnectionId='14'                      Width="200" Margin="5" HorizontalAlignment="Center">Test</Button>
             </StackPanel>
-        </ScrollViewer>
-        <ScrollViewer Visibility="Collapsed" Grid.Row="1" HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Auto" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
-            <TextBlock x:ConnectionId='6' x:Name="ResponseBlock"/>
         </ScrollViewer>
         <ProgressRing x:ConnectionId='5' Width="50" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="LoadingIndicator" Visibility="Collapsed"/>
     </Grid>
